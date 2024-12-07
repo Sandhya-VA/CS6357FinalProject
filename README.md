@@ -107,8 +107,6 @@ python sourcecode.py
 ### Generated Files
 1. **`brain_merged.vtk`**: 
    - Merged hemispheres without color.
-   - **Visualization**:
-     ![Merged Hemispheres](./images/brain_merged_vtk.png)
 
 2. **`uncolored_brain.stl`**:
    - Surface model for 3D printing.
@@ -117,8 +115,6 @@ python sourcecode.py
 
 3. **`brain_merged_colored.vtk`**:
    - Merged hemispheres with distinct region colors.
-   - **Visualization**:
-     ![Merged Colored Hemispheres](./images/brain_merged_colored_vtk.png)
 
 4. **`colored_brain.ply`**:
    - PLY file with color mapping for visualization.
