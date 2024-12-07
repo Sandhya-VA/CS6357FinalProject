@@ -129,18 +129,22 @@ python sourcecode.py
 ---
 
 ## VTK Rendering Screenshots
+
 ### Visualization Screens
-1. **Merged Hemispheres**:
-   ![Merged Hemispheres Rendering](./vtk_renders/brain_merged_vtk_render.png)
+1. **Full Brain with Region Labels**:
+   - **Description**: A 3D rendering of the full brain with distinct colored regions (Red, Blue, Green, Yellow). Each region is labeled with its corresponding color and volume information.
+   - **Image**:  
+     ![Full Brain with Region Labels](./vtk_renders/region_labels.png)
 
-2. **Colored Regions**:
-   ![Colored Regions Rendering](./vtk_renders/brain_colored_regions_render.png)
+2. **Isolines Visualization (Slices)**:
+   - **Description**: Displays isolines extracted from the brain by slicing it along a specified axis. The isolines highlight scalar variations at multiple cross-sections.
+   - **Image**:  
+     ![Isolines Visualization](./vtk_renders/isolines_slices.png)
 
-3. **Isoline Visualizations**:
-   ![Isoline Visualization](./vtk_renders/isoline_visualization.png)
-
-4. **Sliced Views**:
-   ![Sliced Views Rendering](./vtk_renders/sliced_views_render.png)
+3. **Full Brain with Isolines and Low Intensity**:
+   - **Description**: Combines the full 3D brain model (with reduced opacity) and isolines. The isolines are prominently displayed, highlighting key scalar features.
+   - **Image**:  
+     ![Full Brain with Isolines](./vtk_renders/full_brain_isolines.png)
 
 ---
 
