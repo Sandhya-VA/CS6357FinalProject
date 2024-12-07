@@ -13,9 +13,11 @@ Key features include:
 - Enhanced rendering of brain models for interactive visualization using VTK and Looking Glass holographic display.
 
 For details about the project objectives and methods, refer to the full project report:
-[Holographic Visualization and Quantitative Analysis of Brain Imaging Data](CS6357_FinalProject.pdf).
+[Holographic Visualization and Quantitative Analysis of Brain Imaging Data](./CS6357_FinalProject.pdf).
 
 ---
+### Demo link:
+Holographic Display Demo: https://youtu.be/X9WPEu3k1sg
 
 ## Features
 
