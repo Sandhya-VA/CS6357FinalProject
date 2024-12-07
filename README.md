@@ -50,3 +50,50 @@ Key features include:
 │   ├── final_segmented_brain.ply # Final processed brain model with segmentation
 ├── sourcecode.py             # Main Python script
 └── README.md                 # Documentation for the project
+
+## Requirements
+
+The following dependencies are required to run this project:
+
+- **Python 3.7 or later**
+- **VTK (Visualization Toolkit)**: A library for 3D computer graphics, image processing, and visualization.
+- **Numpy**: For performing PCA and other numerical computations.
+
+### Install Dependencies
+
+To install the required libraries, run the following command:
+
+```bash
+pip install vtk numpy
+## How to Run
+
+### Prepare the Input Data
+
+- Place the `.vtp` files (`lh.pial.vtp` and `rh.pial.vtp`) in the `data/` directory.
+
+### Ensure Output Directory
+
+- Ensure the `output/` directory exists or create it:
+
+```bash
+mkdir output
+### Run the Python Script
+
+- Execute the `sourcecode.py` script:
+
+```bash
+python sourcecode.py
+### Check Outputs
+
+- The processed files will be saved in the `output/` directory.
+- Visualizations will be rendered interactively during the execution.
+## Outputs
+
+### Generated Files
+
+- **`brain_merged.vtk`**: Merged hemispheres without color.
+- **`uncolored_brain.stl`**: Surface model for 3D printing.
+- **`brain_merged_colored.vtk`**: Merged hemispheres with distinct region colors.
+- **`colored_brain.ply`**: PLY file with color mapping for visualization.
+- **`final_segmented_brain.ply`**: Segmented brain model with region-specific data.
+
