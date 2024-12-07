@@ -578,29 +578,6 @@ def calculate_principal_axes(polydata, region_stats):
 # Main Execution (Continuation)
 # -----------------------------------------------------
 if __name__ == "__main__":
-    render_colored_sliced_brain_with_isolines(combined_colored_polydata, isoline_polydata, axis=1, slice_position=0.5)
-
-    region_areas = calculate_region_surface_areas(combined_colored_polydata, region_stats)
-    print("\nRegion Surface Areas:", region_areas)
-
-    principal_axes = calculate_principal_axes(combined_colored_polydata, region_stats)
-    print("\nPrincipal Axes for Each Region:")
-    for color, axes in principal_axes.items():
-        label = {
-            (255, 0, 0): "Left-Front",
-            (0, 255, 0): "Left-Back",
-            (0, 0, 255): "Right-Front",
-            (255, 255, 0): "Right-Back",
-        }.get(color, "Unknown")
-        print(f"\nRegion {color} ({label}):")
-        print(f"  Eigenvalues: {axes['Eigenvalues']}")
-        print(f"  Eigenvectors: {axes['Eigenvectors']}")
-        print(f"  Mean Position: {axes['Mean Position']}")
-
-# -----------------------------------------------------
-# Main Execution
-# -----------------------------------------------------
-if __name__ == "__main__":
     # Step 1: Merge VTP files into VTK format
     merge_vtp_to_vtk()
 
@@ -636,8 +613,8 @@ if __name__ == "__main__":
     # Step 10: Visualize the combined polydata
     visualize_polydata(combined_colored_polydata)
 
-    # Step 11: Export the combined polydata to PLY
-    export_colored_polydata_to_ply(combined_colored_polydata, "./output/colored_brain.ply")
+    # Step 11: Export the combined polydata to PLY (final segmented brain)
+    export_colored_polydata_to_ply(combined_colored_polydata, "./output/final_segmented_brain.ply")
 
     # Step 12: Calculate region volumes
     region_volumes = calculate_region_volumes_explicit_filtering(combined_colored_polydata, region_stats)
@@ -687,4 +664,3 @@ if __name__ == "__main__":
         print(f"  Eigenvalues: {axes['Eigenvalues']}")
         print(f"  Eigenvectors: {axes['Eigenvectors']}")
         print(f"  Mean Position: {axes['Mean Position']}")
-
