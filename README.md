@@ -1,38 +1,47 @@
+
 # CS6357FinalProject
 
 ## Holographic Visualization and Quantitative Analysis of Brain Imaging Data
 
 ### Overview
 
-This repository provides a Python-based framework for processing, visualizing, and analyzing brain hemisphere data using **VTK (Visualization Toolkit)**. The code handles merging, coloring, and rendering 3D brain models from `.vtp` files and performs analytics like region statistics, PCA, volume, and surface area computation.
+This repository provides a Python-based framework for processing, visualizing, and analyzing brain hemisphere data using **VTK (Visualization Toolkit)**. The project combines quantitative analytics with advanced 3D holographic visualization to enhance interpretability of brain imaging datasets.
 
 Key features include:
-- Combining left and right hemisphere data.
-- Applying distinct colors to regions for enhanced visualization.
-- Exporting models to various formats (`VTK`, `STL`, `PLY`).
-- Generating isoline and slice-based visualizations.
-- Performing advanced analytics (PCA, volume, and surface area computations).
+- Brain data segmentation into four regions (Left-Front, Left-Back, Right-Front, Right-Back).
+- Volumetric, surface area, and centroid-based calculations.
+- Enhanced rendering of brain models for interactive visualization using VTK and Looking Glass holographic display.
+
+For details about the project objectives and methods, refer to the full project report:
+[Holographic Visualization and Quantitative Analysis of Brain Imaging Data](CS6357_FinalProject.pdf).
 
 ---
 
 ## Features
 
-1. **Data Processing**:
-   - Merge `.vtp` files for left and right hemispheres into a unified `.vtk` file.
-   - Assign colors to brain regions for better distinction.
-   - Export models to `.stl` (3D printing) and `.ply` (colored visualization) formats.
+### Data Processing
+1. **Segmentation**:
+   - Brain imaging data is divided into four quadrants using spatial coordinates and color-coded with distinct RGB values.
+2. **Combination**:
+   - Merges segmented hemispheres into a single polydata for unified analysis.
+3. **File Conversion**:
+   - Outputs in `.vtk`, `.stl`, and `.ply` formats for use in analysis and rendering workflows.
 
-2. **Analytics**:
-   - Calculate:
-     - Volume of each brain region.
-     - Surface area of regions using filtered data.
-     - Principal Component Analysis (PCA) for geometric insights.
-   - Provide labeled isoline visualizations for cross-sectional views.
+### Quantitative Analytics
+1. **Volume and Surface Area Calculations**:
+   - Volumes and surface areas for each region are computed using VTK’s triangulation and mass property tools.
+2. **Spatial Properties**:
+   - Centroids and principal axes are calculated using eigenvalues and eigenvectors derived from spatial data.
+3. **Density Analysis**:
+   - Point and cell counts for each region to measure spatial density.
 
-3. **Visualization**:
-   - Full 3D model rendering with region-wise colors and labels.
-   - Slice-based rendering for specific brain sections.
-   - Enhanced isoline visualizations with color-coded boundaries.
+### Visualization
+1. **3D Rendering with VTK**:
+   - Region-specific rendering with labels showing metrics like volume and centroid.
+2. **Slicing and Isolines**:
+   - Interactive slice visualizations with isolines for structural clarity.
+3. **Holographic Display Integration**:
+   - Rendered `.ply` models displayed interactively on the Looking Glass Portrait device.
 
 ---
 
@@ -41,34 +50,32 @@ Key features include:
 ```plaintext
 .
 ├── data/
-│   ├── lh.pial.vtp           # Left hemisphere input data
-│   ├── rh.pial.vtp           # Right hemisphere input data
+│   ├── lh.pial.vtp            # Left hemisphere input
+│   ├── rh.pial.vtp            # Right hemisphere input
 ├── output/
-│   ├── brain_merged.vtk      # Merged hemispheres (uncolored)
-│   ├── uncolored_brain.stl   # Surface model in STL format
-│   ├── brain_merged_colored.vtk  # Merged hemispheres with colors
-│   ├── colored_brain.ply     # Intermediate colored PLY file
-│   ├── final_segmented_brain.ply # Final processed brain model with segmentation
-├── sourcecode.py             # Main Python script
-└── README.md                 # Documentation for the project
+│   ├── brain_merged.vtk       # Combined hemispheres (uncolored)
+│   ├── brain_merged_colored.vtk  # Combined hemispheres (colored)
+│   ├── uncolored_brain.stl    # STL file for 3D printing
+│   ├── colored_brain.ply      # Colored brain in PLY format
+│   ├── final_segmented_brain.ply # Quadrant-based segmentation with region-specific metrics
+├── SourceCode.ipynb           # Jupyter Notebook for full workflow
+├── CS6357_FinalProject.pdf    # Full project report
+└── README.md                  # Documentation
 ```
 
 ---
 
 ## Requirements
 
-The following dependencies are required to run this project:
-
 - **Python 3.7 or later**
-- **VTK (Visualization Toolkit)**: A library for 3D computer graphics, image processing, and visualization.
-- **Numpy**: For performing PCA and other numerical computations.
+- **VTK (Visualization Toolkit)**: For data processing and rendering.
+- **Numpy**: For numerical operations.
+- **Jupyter Notebook**: For interactive execution.
 
 ### Install Dependencies
 
-To install the required libraries, run the following command:
-
 ```bash
-pip install vtk numpy
+pip install vtk numpy notebook
 ```
 
 ---
@@ -76,80 +83,63 @@ pip install vtk numpy
 ## How to Run
 
 ### Prepare the Input Data
+1. Place the `.vtp` files (`lh.pial.vtp` and `rh.pial.vtp`) in the `data/` directory.
 
-- Place the `.vtp` files (`lh.pial.vtp` and `rh.pial.vtp`) in the `data/` directory.
-
-### Ensure Output Directory
-
-- Ensure the `output/` directory exists or create it:
-
-```bash
-mkdir output
-```
-
-### Run the Python Script
-
-- Execute the `sourcecode.py` script:
-
-```bash
-python sourcecode.py
-```
-
-### Check Outputs
-
-- The processed files will be saved in the `output/` directory.
-- Visualizations will be rendered interactively during the execution.
+### Run the Notebook
+1. Open a terminal or Anaconda prompt.
+2. Navigate to the project directory:
+   ```bash
+   cd /path/to/CS6357FinalProject
+   ```
+3. Launch Jupyter Notebook:
+   ```bash
+   jupyter notebook
+   ```
+4. Open `SourceCode.ipynb` and execute cells sequentially to process, analyze, and render the brain data.
 
 ---
 
-  ## Outputs
+## Outputs
 
 ### Generated Files
-1. **`brain_merged.vtk`**: 
+1. **`brain_merged.vtk`**:
    - Merged hemispheres without color.
-
 2. **`uncolored_brain.stl`**:
-   - Surface model for 3D printing.
-   - **Visualization**:
-     ![Uncolored Brain STL](./images/uncolored_brain_stl.png)
-
+   - STL format of the merged brain.
 3. **`brain_merged_colored.vtk`**:
-   - Merged hemispheres with distinct region colors.
-
+   - Merged hemispheres with color segmentation.
 4. **`colored_brain.ply`**:
-   - PLY file with color mapping for visualization.
-   - **Visualization**:
-     ![Colored Brain PLY](./images/colored_brain_ply.png)
-
+   - Colored regions for holographic visualization.
 5. **`final_segmented_brain.ply`**:
-   - Segmented brain model with region-specific data.
-   - **Visualization**:
-     ![Segmented Brain](./images/final_segmented_brain.png)
+   - Quadrant-based segmentation with calculated properties.
 
----
-
-## VTK Rendering Screenshots
-
-### Visualization Screens
-1. **Full Brain with Region Labels**:
-   - **Description**: A 3D rendering of the full brain with distinct colored regions (Red, Blue, Green, Yellow). Each region is labeled with its corresponding color and volume information.
+### Visualization Screenshots
+1. **Full Brain with Labels**:
+   - **Description**: Displays brain regions with color-coded labels showing metrics.
    - **Image**:  
-     ![Full Brain with Region Labels](./vtk_renders/region_labels.png)
-
-2. **Isolines Visualization (Slices)**:
-   - **Description**: Displays isolines extracted from the brain by slicing it along a specified axis. The isolines highlight scalar variations at multiple cross-sections.
+     ![Full Brain with Labels](./vtk_renders/region_labels.png)
+2. **Isolines Visualization**:
+   - **Description**: Cross-sectional slices with isolines for structural clarity.
    - **Image**:  
      ![Isolines Visualization](./vtk_renders/isolines_slices.png)
-
-3. **Full Brain with Isolines and Low Intensity**:
-   - **Description**: Combines the full 3D brain model (with reduced opacity) and isolines. The isolines are prominently displayed, highlighting key scalar features.
+3. **Full Brain with Reduced Opacity**:
+   - **Description**: Transparent brain model with isoline overlays.
    - **Image**:  
-     ![Full Brain with Isolines](./vtk_renders/full_brain_isolines.png)
+     ![Full Brain with Reduced Opacity](./vtk_renders/full_brain_isolines.png)
 
 ---
 
-## Acknowledgements
+## Citation
 
-- **VTK Library**: For its extensive support for 3D computer graphics and visualization.
-- **Python Community**: For providing tools and resources to simplify development.
-- **CS6357 Course**: For inspiration and guidance in understanding holographic visualization and quantitative analysis techniques.
+Please cite the following report for details about the methodology and results:
+
+```
+Aparna Kuppa and Sandhya Venkataramaiah, “Holographic Visualization and Quantitative Analysis of Brain Imaging Data,” Vanderbilt University, CS6357 Final Project. Available at: https://github.com/Sandhya-VA/CS6357FinalProject/.
+```
+
+References:
+1. Schroeder, W., Martin, K., and Lorensen, B. *The Visualization Toolkit (4th ed.)*. Kitware, 2006. ISBN: 978-1-930934-19-1.
+2. [Looking Glass Factory Documentation](https://docs.lookingglassfactory.com/).
+3. [Looking Glass Bridge](https://docs.lookingglassfactory.com/software-tools/looking-glass-bridge).
+
+---
