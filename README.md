@@ -1,7 +1,8 @@
-# CS6357FinalProject
-# Holographic Visualization and Quantitative Analysis of Brain Imaging Data
 
-## Overview
+# CS6357FinalProject
+## Holographic Visualization and Quantitative Analysis of Brain Imaging Data
+
+### Overview
 
 This repository provides a Python-based framework for processing, visualizing, and analyzing brain hemisphere data using **VTK (Visualization Toolkit)**. The code handles merging, coloring, and rendering 3D brain models from `.vtp` files and performs analytics like region statistics, PCA, volume, and surface area computation.
 
@@ -50,6 +51,9 @@ Key features include:
 │   ├── final_segmented_brain.ply # Final processed brain model with segmentation
 ├── sourcecode.py             # Main Python script
 └── README.md                 # Documentation for the project
+```
+
+---
 
 ## Requirements
 
@@ -65,6 +69,10 @@ To install the required libraries, run the following command:
 
 ```bash
 pip install vtk numpy
+```
+
+---
+
 ## How to Run
 
 ### Prepare the Input Data
@@ -77,16 +85,23 @@ pip install vtk numpy
 
 ```bash
 mkdir output
+```
+
 ### Run the Python Script
 
 - Execute the `sourcecode.py` script:
 
 ```bash
 python sourcecode.py
+```
+
 ### Check Outputs
 
 - The processed files will be saved in the `output/` directory.
 - Visualizations will be rendered interactively during the execution.
+
+---
+
 ## Outputs
 
 ### Generated Files
@@ -97,3 +112,10 @@ python sourcecode.py
 - **`colored_brain.ply`**: PLY file with color mapping for visualization.
 - **`final_segmented_brain.ply`**: Segmented brain model with region-specific data.
 
+---
+
+## Acknowledgements
+
+- **VTK Library**: For its extensive support for 3D computer graphics and visualization.
+- **Python Community**: For providing tools and resources to simplify development.
+- **CS6357 Course**: For inspiration and guidance in understanding holographic visualization and quantitative analysis techniques.
