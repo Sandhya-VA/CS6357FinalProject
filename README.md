@@ -102,15 +102,49 @@ python sourcecode.py
 
 ---
 
-## Outputs
+  ## Outputs
 
 ### Generated Files
+1. **`brain_merged.vtk`**: 
+   - Merged hemispheres without color.
+   - **Visualization**:
+     ![Merged Hemispheres](./images/brain_merged_vtk.png)
 
-- **`brain_merged.vtk`**: Merged hemispheres without color.
-- **`uncolored_brain.stl`**: Surface model for 3D printing.
-- **`brain_merged_colored.vtk`**: Merged hemispheres with distinct region colors.
-- **`colored_brain.ply`**: PLY file with color mapping for visualization.
-- **`final_segmented_brain.ply`**: Segmented brain model with region-specific data.
+2. **`uncolored_brain.stl`**:
+   - Surface model for 3D printing.
+   - **Visualization**:
+     ![Uncolored Brain STL](./images/uncolored_brain_stl.png)
+
+3. **`brain_merged_colored.vtk`**:
+   - Merged hemispheres with distinct region colors.
+   - **Visualization**:
+     ![Merged Colored Hemispheres](./images/brain_merged_colored_vtk.png)
+
+4. **`colored_brain.ply`**:
+   - PLY file with color mapping for visualization.
+   - **Visualization**:
+     ![Colored Brain PLY](./images/colored_brain_ply.png)
+
+5. **`final_segmented_brain.ply`**:
+   - Segmented brain model with region-specific data.
+   - **Visualization**:
+     ![Segmented Brain](./images/final_segmented_brain.png)
+
+---
+
+## VTK Rendering Screenshots
+### Visualization Screens
+1. **Merged Hemispheres**:
+   ![Merged Hemispheres Rendering](./vtk_renders/brain_merged_vtk_render.png)
+
+2. **Colored Regions**:
+   ![Colored Regions Rendering](./vtk_renders/brain_colored_regions_render.png)
+
+3. **Isoline Visualizations**:
+   ![Isoline Visualization](./vtk_renders/isoline_visualization.png)
+
+4. **Sliced Views**:
+   ![Sliced Views Rendering](./vtk_renders/sliced_views_render.png)
 
 ---
 
